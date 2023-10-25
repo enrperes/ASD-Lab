@@ -10,3 +10,7 @@ array = [1, 2, 3, 4, 3] # array mutabile
 tupla = (1, 2, 3, 4, 5) # array non mutabile
 insieme = {1, 2, 3, 4, 5} # insieme non ordinato
 
+# primo incluso secondo escluso 
+s = "Hello world"
+s[0] # H
+s[1:5] # ello
