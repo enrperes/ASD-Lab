@@ -1,3 +1,5 @@
+# Scrivere un programma che riceva in input due interi e restituisca in output la loro somma.
+
 raw_input = input # raw_input è solo per Python2
 
 x = int(input())
