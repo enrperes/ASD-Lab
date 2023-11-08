@@ -1,7 +1,7 @@
-# from rcviz import callgraph, viz
-from recviz import recviz
+from rcviz import callgraph, viz
+# from recviz import recviz
 
-@recviz
+@viz 
 def partition(a, low, high):
     p = a[high-1]
     i = low
@@ -20,8 +20,9 @@ def quicksort(a, low, high):
     quicksort(a, low, middle)
     quicksort(a, middle + 1, high)
 
-a = [43, 1, 5, 7, 5, 8, 29, 11]
+# a = [43, 1, 5, 7, 5, 8, 29, 11, 2, 3, 52, 42, 69, 100]
+a = [2, 3, 1, 0]
 quicksort(a, 0, len(a))
 print (a)
 
-# callgraph.render("sort.png")
+callgraph.render("sort.svg")
