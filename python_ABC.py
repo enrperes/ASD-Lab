@@ -14,3 +14,7 @@ insieme = {1, 2, 3, 4, 5} # insieme non ordinato
 s = "Hello world"
 s[0] # H
 s[1:5] # ello
+
+# try-except
+try: input 
+except NameError: pass
