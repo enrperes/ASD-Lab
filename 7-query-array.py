@@ -1,17 +1,22 @@
-def input_array(): 
-    return [int(x) for x in input().split(" ") if x]
+# input = array of int V, array of pairs of int (i, j)
+# output = array of int, where each element is the sum of the elements of V in the range [i, j]
 
-def range_sum(a, i, j):
-    s = 0
-    for k in range(i, j+1):
-        s += a[k]
-    return s
+# Example:
+# input=5 0 3 1 13 7 5
+# 0 6 2 4 3 6 # [0:6] [2:4] [3:6]
+# output=34 17 26
 
-a = input_array()
-b = input_array()
-c = [(i, j) for (i, j) in zip(b[0::2], b[1::2])]
+def sumIntervals(V, pairs):
+    sums = [None] * len(pairs)
+    for i in range (len(pairs)):
+        sums[i] = 0
+        for j in range (pairs[i][0], pairs[i][1] + 1): # pairs[i][0] è il primo elemento della coppia, pairs[i][1] è il secondo elemento della coppia
+            sums[i] += V[j]
+    return sums
+       
+V = [int(x) for x in input().split(" ") if x] 
+inputPairs = list(map(int, input().split()))
+pairs = [(inputPairs[i], inputPairs[i+1]) for i in range(0, len(inputPairs), 2)]
 
-for (i, j) in c:
-    print(range_sum(a, i, j), end=" ")
-
-
+# print(sumIntervals(V, pairs))
+print(' '.join(str(x) for x in sumIntervals(V, pairs))) # join() prende una lista di stringhe e le concatena in una stringa unica, separandole con lo spazio.

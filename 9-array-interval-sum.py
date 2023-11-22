@@ -8,7 +8,7 @@
 # S = 17
 # Output: 2 4
 
-# Implementare versione di O(n^3) e Theta(n)
+# Implementare versione di O(n^3) e Theta(n) (c'è un errore, da correggere.)
 
 def findInterval(V, S):
     i = j = 0

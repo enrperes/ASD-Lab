@@ -1,8 +1,10 @@
-raw_input = input
+# input = Sorted int array and target value
+# output = index of target value in the array. -1 if not found
 
-def getArray():
-	tokens = raw_input().split(" ")
-	return [int(x) for x in tokens if x]  # "if x" filters out empty tokens
+# Example:
+# input: 3 7 8 11 15 24
+# 15
+# output: 4
 
 def binarySearchRec(array, left, right, item):
 	i = int(item)
@@ -11,18 +13,18 @@ def binarySearchRec(array, left, right, item):
 		if (i == array[middle]):
 			return middle
 		elif (array[middle] > i):
-			return binarySearch(array, left , middle - 1,  itemToFind)
+			return binarySearchRec(array, left , middle - 1,  target)
 		else:
-			return binarySearch(array, middle + 1, right,  itemToFind)
+			return binarySearchRec(array, middle + 1, right,  target)
 	else:
 		return -1
 	
 def binarySearch(array, item):
 	return binarySearchRec(array, 0, len(array)-1, item)
 
-V = getArray()
-itemToFind = raw_input()
+V = [int(x) for x in input().split(" ") if x] # "if x" filters out empty tokens. 
+target = int(input())
 
-pos = binarySearch(V, itemToFind) + 1
+pos = binarySearch(V, target)
 
 print(pos)
