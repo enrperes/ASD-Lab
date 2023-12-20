@@ -1,42 +1,30 @@
+# input = Sorted int array and target value
+# output = index of target value in the array. -1 if not found
 
-# def binary_search(arr, key):
-#     """
-#     Perform binary search on a sorted array of integers.
+# Example:
+# input: 3 7 8 11 15 24
+# 15
+# output: 4
 
-#     Args:
-#     - arr: a sorted array of integers
-#     - key: the integer to search for in the array
+def binarySearchRec(array, left, right, item):
+	i = int(item)
+	if right >= left:
+		middle = left + (right - left) //2
+		if (i == array[middle]):
+			return middle
+		elif (array[middle] > i):
+			return binarySearchRec(array, left , middle - 1,  target)
+		else:
+			return binarySearchRec(array, middle + 1, right,  target)
+	else:
+		return -1
+	
+def binarySearch(array, item):
+	return binarySearchRec(array, 0, len(array)-1, item)
 
-#     Returns:
-#     - the index of the key in the array, if it exists (0-indexed)
-#     - -1 if the key is not present in the array
-#     """
-#     left = 0
-#     right = len(arr) - 1
+V = [int(x) for x in input().split(" ") if x] # "if x" filters out empty tokens. 
+target = int(input())
 
-#     while left <= right:
-#         mid = (left + right) // 2
-#         if arr[mid] == key:
-#             return mid
-#         elif arr[mid] < key:
-#             left = mid + 1
-#         else:
-#             right = mid - 1
+pos = binarySearch(V, target)
 
-#     return -1
-
-
-def binary_search(a, low, high, key):
-    if high - low <= 0:
-        return -1
-    m = (low + high) // 2 
-    if a[m] == key:
-        return m
-    elif a[m] < key:
-        return binary_search(a, m + 1, high, key)
-    else:
-        return binary_search(a, low, m, key)
-    
-a = [int(x) for x in input().split(" ") if x]
-
-binary_search(a, 0, len(a), int(input()))   
+print(pos)
